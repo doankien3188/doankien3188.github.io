@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>5TP FASHION – Trung Thu Sale</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Animations & gentle Mid‑Autumn decorations */
+    @keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+    @keyframes sway{0%{transform:rotate(-1.5deg)}50%{transform:rotate(1.5deg)}100%{transform:rotate(-1.5deg)}}
+    @keyframes twinkle{0%,100%{opacity:.25}50%{opacity:.9}}
+    @keyframes drift{0%{transform:translateX(0)}100%{transform:translateX(40px)}}
+  </style>
+</head>
+<body class="min-h-screen relative bg-gradient-to-b from-amber-50 via-rose-50 to-pink-50 text-gray-900">
+  <!-- Full‑moon subtle pattern -->
+  <svg aria-hidden class="pointer-events-none fixed -z-20 inset-0 w-full h-full opacity-[0.05]" preserveAspectRatio="none" viewBox="0 0 600 400">
+    <defs>
+      <pattern id="fullmoon-ptn" width="60" height="60" patternUnits="userSpaceOnUse">
+        <circle cx="30" cy="30" r="18" fill="#fef3c7" stroke="#7f1d1d" stroke-width="0.5"/>
+        <circle cx="30" cy="30" r="9" fill="none" stroke="#7f1d1d" stroke-width="0.5"/>
+        <g fill="#fef3c7" opacity=".6">
+          <ellipse cx="30" cy="15" rx="10" ry="4"/>
+          <ellipse cx="15" cy="34" rx="12" ry="5"/>
+        </g>
+      </pattern>
+    </defs>
+    <rect x="0" y="0" width="600" height="400" fill="url(#fullmoon-ptn)"/>
+  </svg>
+  <!-- Big moon + clouds + lanterns -->
+  <svg aria-hidden class="pointer-events-none fixed -z-10 right-[-60px] top-[-60px] w-[260px] h-[260px] opacity-80" viewBox="0 0 200 200">
+    <defs>
+      <radialGradient id="moonGradX" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#fff7d6"/>
+        <stop offset="100%" stop-color="#ffd166"/>
+      </radialGradient>
+    </defs>
+    <circle cx="100" cy="100" r="90" fill="url(#moonGradX)"/>
+  </svg>
+  <svg aria-hidden class="pointer-events-none fixed -z-10 opacity-20" style="left:8%;top:18%;animation:drift 16s linear infinite alternate" viewBox="0 0 160 70">
+    <g fill="#ffe8b3"><ellipse cx="40" cy="35" rx="32" ry="16"/><ellipse cx="78" cy="30" rx="30" ry="18"/><ellipse cx="120" cy="36" rx="28" ry="14"/></g>
+  </svg>
+  <svg aria-hidden class="pointer-events-none fixed -z-10 opacity-20" style="left:63%;top:40%;animation:drift 18s linear infinite alternate" viewBox="0 0 160 70">
+    <g fill="#ffe8b3"><ellipse cx="40" cy="35" rx="32" ry="16"/><ellipse cx="78" cy="30" rx="30" ry="18"/><ellipse cx="120" cy="36" rx="28" ry="14"/></g>
+  </svg>
+  <svg aria-hidden class="pointer-events-none fixed -z-10 left-6 top-8 w-20 h-24 opacity-85" style="animation:floatY 8s ease-in-out infinite, sway 7s ease-in-out infinite;transform-origin:50% 10%" viewBox="0 0 100 140">
+    <defs><linearGradient id="lanternA" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ffedd5"/><stop offset="100%" stop-color="#fb7185"/></linearGradient></defs>
+    <line x1="50" y1="0" x2="50" y2="20" stroke="#7f1d1d"/>
+    <rect x="24" y="20" width="52" height="72" rx="26" fill="url(#lanternA)" stroke="#7f1d1d"/>
+    <line x1="24" y1="40" x2="76" y2="40" stroke="#7f1d1d" opacity=".22"/>
+    <line x1="24" y1="60" x2="76" y2="60" stroke="#7f1d1d" opacity=".22"/>
+    <path d="M50 92 L58 110 L42 110 Z" fill="#fbbf24" stroke="#7f1d1d"/>
+  </svg>
+  <svg aria-hidden class="pointer-events-none fixed -z-10 right-8 top-40 w-14 h-18 opacity-80" style="animation:floatY 9s ease-in-out infinite 1s, sway 8s ease-in-out infinite;transform-origin:50% 10%" viewBox="0 0 100 140">
+    <rect x="28" y="26" width="44" height="64" rx="22" fill="#fcd34d" stroke="#7f1d1d"/>
+    <line x1="50" y1="6" x2="50" y2="26" stroke="#7f1d1d"/>
+    <path d="M50 90 L57 106 L43 106 Z" fill="#fb7185" stroke="#7f1d1d"/>
+  </svg>
+
+  <!-- Top bar -->
+  <div class="w-full bg-gradient-to-r from-amber-700 to-rose-700 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2 text-white/90 text-sm">🚚 Freeship đơn từ 299k • Đổi trả 7 ngày</div>
+      <div class="flex items-center gap-4 text-white/80 text-sm">📷 📘 ▶️</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 backdrop-blur bg-white/75 border-b">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
+      <div class="flex items-center gap-2 text-xl font-bold">👕 5TP FASHION</div>
+      <div class="hidden md:flex items-center gap-2 ml-6 text-sm">
+        <button class="px-3 py-1 rounded-xl border bg-white">Mới</button>
+        <button class="px-3 py-1 rounded-xl border bg-white">Bán chạy</button>
+        <button class="px-3 py-1 rounded-xl border bg-white">Khuyến mãi</button>
+      </div>
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-2 w-full max-w-md">
+        <div class="relative flex-1">
+          <input id="search" class="w-full rounded-xl border px-3 py-2 pl-8" placeholder="Tìm áo, quần, váy..." />
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">🔎</span>
+        </div>
+        <button id="openCart" class="rounded-xl bg-rose-600 text-white px-3 py-2">🛒 Giỏ (<span id="cartCount">0</span>)</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-6 py-10">
+    <div class="rounded-3xl overflow-hidden">
+      <div class="aspect-[16/9] relative overflow-hidden bg-gradient-to-br from-rose-600 via-amber-500 to-pink-600 text-white grid place-items-center">
+        <div class="text-center p-8 relative z-10">
+          <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-white/90 bg-white/10 px-3 py-1 rounded-full ring-1 ring-white/30">Trung Thu SALE • Quà tặng đèn lồng</div>
+          <h1 class="text-3xl md:text-4xl font-extrabold mt-2 drop-shadow">Săn Deal Trung Thu • 5TP FASHION</h1>
+          <p class="text-white/85 mt-2">Áo quần mới • Tặng túi quà & bánh nướng cho đơn từ 399k.</p>
+          <div class="mt-4 flex gap-3 justify-center">
+            <a href="#grid" class="rounded-xl bg-white text-rose-600 hover:bg-amber-50 px-4 py-2">Mua ngay</a>
+            <a href="#" class="rounded-xl border border-white/30 text-white hover:bg-white hover:text-rose-700 px-4 py-2">Xem lookbook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rounded-3xl">
+      <div class="p-6 grid grid-cols-2 gap-4">
+        <div class="p-4 rounded-2xl bg-gray-50"><div class="text-sm font-semibold">Giao nhanh 24-48h</div><p class="text-sm text-gray-500 mt-1">Miễn phí &gt;299k, COD toàn quốc.</p></div>
+        <div class="p-4 rounded-2xl bg-gray-50"><div class="text-sm font-semibold">Đổi trả 7 ngày</div><p class="text-sm text-gray-500 mt-1">Đổi size, màu dễ dàng.</p></div>
+        <div class="p-4 rounded-2xl bg-gray-50"><div class="text-sm font-semibold">Ưu đãi sinh viên</div><p class="text-sm text-gray-500 mt-1">Giảm thêm 10% với thẻ SV.</p></div>
+        <div class="p-4 rounded-2xl bg-gray-50"><div class="text-sm font-semibold">Chất liệu thoải mái</div><p class="text-sm text-gray-500 mt-1">Cotton, denim bền đẹp.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <div class="max-w-6xl mx-auto px-4 -mt-4 mb-2">
+    <div class="flex items-center justify-center gap-2 py-2">
+      <!-- Moon ribbon -->
+      <div class="flex gap-2">
+        <!-- 12 moons -->
+        <template id="moonTpl"></template>
+      </div>
+    </div>
+  </div>
+  <section class="max-w-6xl mx-auto px-4">
+    <div class="rounded-3xl border bg-white/70 backdrop-blur">
+      <div class="p-4 md:p-6 flex flex-col md:flex-row gap-4 md:items-center">
+        <div class="flex items-center gap-2"><span>⚙️</span><span class="text-sm font-medium">Danh mục:</span></div>
+        <div class="flex-1 overflow-x-auto">
+          <div id="cats" class="flex gap-2 min-w-max"></div>
+        </div>
+        <div class="w-full md:w-72">
+          <div class="text-xs text-gray-500 mb-2">Khoảng giá (nghìn VNĐ): <span id="priceMin">0</span>k - <span id="priceMax">400</span>k</div>
+          <input id="priceRange" type="range" min="0" max="400" step="10" value="400" class="w-full" />
+        </div>
+        <div class="w-full md:w-44">
+          <select id="sort" class="w-full rounded-xl border px-3 py-2 text-sm">
+            <option value="popular">Phổ biến</option>
+            <option value="price-asc">Giá tăng dần</option>
+            <option value="price-desc">Giá giảm dần</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid -->
+  <section id="grid" class="max-w-6xl mx-auto px-4 py-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"></section>
+
+  <!-- Detail Modal -->
+  <div id="detailModal" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/60" data-close="modal"></div>
+    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[92vw] max-w-lg bg-white rounded-2xl p-4">
+      <div class="flex items-center justify-between">
+        <div id="detailTitle" class="text-lg font-bold"></div>
+        <button class="p-1 rounded-md hover:bg-gray-100" data-close="modal">✖</button>
+      </div>
+      <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <div class="relative w-full aspect-[4/5] overflow-hidden rounded-2xl bg-gray-100">
+            <img id="detailImg" class="h-full w-full object-cover" alt="product"/>
+          </div>
+          <div id="thumbs" class="mt-3 grid grid-cols-4 gap-2"></div>
+        </div>
+        <div>
+          <div id="detailPrice" class="text-xl font-bold"></div>
+          <div class="mt-2 text-xs text-gray-500"><span id="detailRating"></span> • <span id="detailReviews"></span> lượt đánh giá</div>
+          <div class="mt-3">
+            <div class="text-sm font-medium">Màu sắc</div>
+            <div id="detailColors" class="flex gap-2 mt-2"></div>
+          </div>
+          <div class="mt-3">
+            <div class="text-sm font-medium">Size</div>
+            <div id="detailSizes" class="flex flex-wrap gap-2 mt-2"></div>
+          </div>
+          <div class="mt-4 flex gap-2">
+            <button id="btnAddCart" class="rounded-xl flex-1 bg-rose-600 text-white px-4 py-2">Thêm vào giỏ</button>
+            <button id="btnBuyNow" class="rounded-xl border px-4 py-2">Mua ngay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Sheet -->
+  <div id="cartSheet" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/60" data-close="cart"></div>
+    <aside class="absolute right-0 top-0 h-full w-full sm:w-[420px] bg-white p-4 overflow-y-auto">
+      <div class="flex items-center justify-between">
+        <div class="text-lg font-bold">Giỏ hàng</div>
+        <button class="p-1 rounded-md hover:bg-gray-100" data-close="cart">✖</button>
+      </div>
+      <div id="cartList" class="mt-4 space-y-3"></div>
+      <div class="mt-6 border-t pt-4 space-y-3">
+        <div class="flex justify-between text-sm"><span>Tạm tính</span><span id="subtotal" class="font-semibold">0đ</span></div>
+        <button class="w-full rounded-xl bg-rose-600 text-white px-4 py-2">Thanh toán</button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t mt-10">
+    <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-4 gap-6">
+      <div><div class="flex items-center gap-2 text-xl font-bold">👕 5TP FASHION</div><p class="text-sm text-gray-500 mt-2">Cửa hàng thời trang tối giản – đồng hành cùng sinh viên.</p></div>
+      <div><div class="text-sm font-semibold">Hỗ trợ</div><ul class="text-sm text-gray-500 mt-2 space-y-1"><li>FAQ & đổi trả</li><li>Chính sách vận chuyển</li><li>Liên hệ CSKH</li></ul></div>
+      <div><div class="text-sm font-semibold">Danh mục</div><ul id="footerCats" class="text-sm text-gray-500 mt-2 space-y-1"></ul></div>
+      <div><div class="text-sm font-semibold">Kết nối</div><div class="flex gap-3 mt-2 text-gray-500">📷 📘 ▶️</div></div>
+    </div>
+    <div class="text-xs text-gray-400 text-center pb-6">© <span id="year"></span> 5TP FASHION. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // ---------- Data ----------
+    const IMGS = {
+      tshirt:[
+        "https://images.unsplash.com/photo-1520975693412-26e560c91808?q=80&w=1200&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop",
+      ],
+      shirt:[
+        "https://images.unsplash.com/photo-1520975922438-8baf0b0f6f61?q=80&w=1200&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1520978910400-4f1a18c6c56b?q=80&w=1200&auto=format&fit=crop",
+      ],
+      polo:[
+        "https://images.unsplash.com/photo-1583744946564-b52ac1c389c7?q=80&w=1200&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1602810318383-9e3a9c1b67b1?q=80&w=1200&auto=format&fit=crop",
+      ],
+      hoodie:[
+        "https://images.unsplash.com/photo-1503342217505-b0a15cf70489?q=80&w=1200&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1523381294911-8d3cead13475?q=80&w=1200&auto=format&fit=crop",
+      ],
+      jeans:[
+        "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1200&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1551854713-8b811be39e8f?q=80&w=1200&auto=format&fit=crop",
+      ],
+      dress:[
+        "https://images.unsplash.com/photo-1520974735194-1b0e1b6fe8f4?q=80&w=1200&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1520975960939-6c0f4d76b3f5?q=80&w=1200&auto=format&fit=crop",
+      ],
+      pants:[
+        "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&w=1200&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1520975690910-728c4e4a1b5c?q=80&w=1200&auto=format&fit=crop",
+      ],
+      skirt:[
+        "https://images.unsplash.com/photo-1520975960939-6c0f4d76b3f5?q=80&w=1200&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1520975693412-26e560c91808?q=80&w=1200&auto=format&fit=crop",
+      ],
+    };
+
+    const PRODUCTS = [
+      { id: "p1", name: "Áo phông Basic", price: 129000, rating: 4.6, reviews: 128, category: "T-Shirt", colors:["#111827","#f87171","#60a5fa"], sizes:["S","M","L","XL"], image: "tshirt", img: IMGS.tshirt[0], imgs: IMGS.tshirt },
+      { id: "p2", name: "Áo sơ mi Oversize", price: 199000, rating: 4.8, reviews: 203, category: "Shirt", colors:["#e5e7eb","#1f2937"], sizes:["S","M","L"], image: "shirt", img: IMGS.shirt[0], imgs: IMGS.shirt },
+      { id: "p3", name: "Quần jean Slim", price: 279000, rating: 4.7, reviews: 356, category: "Jeans", colors:["#1f2937","#374151"], sizes:["28","29","30","31","32"], image: "jeans", img: IMGS.jeans[0], imgs: IMGS.jeans },
+      { id: "p4", name: "Váy midi A-line", price: 259000, rating: 4.9, reviews: 187, category: "Dress", colors:["#f472b6","#fbbf24"], sizes:["S","M","L"], image: "dress", img: IMGS.dress[0], imgs: IMGS.dress },
+      { id: "p5", name: "Áo hoodie Nỉ", price: 329000, rating: 4.5, reviews: 92, category: "Hoodie", colors:["#111827","#4b5563"], sizes:["S","M","L","XL"], image: "hoodie", img: IMGS.hoodie[0], imgs: IMGS.hoodie },
+      { id: "p6", name: "Quần jogger Thun", price: 219000, rating: 4.4, reviews: 67, category: "Pants", colors:["#111827","#6b7280"], sizes:["S","M","L","XL"], image: "pants", img: IMGS.pants[0], imgs: IMGS.pants },
+      { id: "p7", name: "Chân váy xếp ly", price: 189000, rating: 4.3, reviews: 51, category: "Skirt", colors:["#fde68a","#fca5a5"], sizes:["S","M","L"], image: "skirt", img: IMGS.skirt[0], imgs: IMGS.skirt },
+      { id: "p8", name: "Áo polo Cotton", price: 169000, rating: 4.6, reviews: 144, category: "Polo", colors:["#1f2937","#93c5fd"], sizes:["S","M","L","XL"], image: "polo", img: IMGS.polo[0], imgs: IMGS.polo },
+      { id: "p9", name: "Áo phông Graphic", price: 149000, rating: 4.5, reviews: 77, category: "T-Shirt", colors:["#111827","#ef4444"], sizes:["S","M","L","XL"], image: "tshirt", img: IMGS.tshirt[1], imgs: IMGS.tshirt },
+      { id: "p10", name: "Áo sơ mi Trắng", price: 189000, rating: 4.7, reviews: 182, category: "Shirt", colors:["#e5e7eb"], sizes:["S","M","L","XL"], image: "shirt", img: IMGS.shirt[1], imgs: IMGS.shirt },
+      { id: "p11", name: "Quần Tây Slim", price: 249000, rating: 4.2, reviews: 44, category: "Pants", colors:["#111827","#6b7280"], sizes:["S","M","L","XL"], image: "pants", img: IMGS.pants[1], imgs: IMGS.pants },
+      { id: "p12", name: "Đầm hoa Vintage", price: 299000, rating: 4.8, reviews: 121, category: "Dress", colors:["#f472b6","#fbbf24"], sizes:["S","M","L"], image: "dress", img: IMGS.dress[1], imgs: IMGS.dress },
+    ];
+
+    const CATEGORIES = ["Tất cả","T-Shirt","Shirt","Polo","Jeans","Pants","Skirt","Dress","Hoodie"];
+
+    // ---------- State ----------
+    let state = {
+      search: "",
+      cat: "Tất cả",
+      priceMax: 400000, // VNĐ
+      sort: "popular",
+      cart: [], // {id,name,price,qty,size,color}
+      detail: null, // product
+      pick: { size: null, color: null },
+      activeImg: null,
+    };
+
+    // ---------- Utils ----------
+    const money = v => v.toLocaleString('vi-VN');
+    const starSvg = (filled=true) => filled
+      ? '<svg viewBox="0 0 24 24" class="w-4 h-4 fill-yellow-400 stroke-yellow-400"><path d="M12 2l2.9 6.4 6.9.6-5.2 4.5 1.6 6.8L12 16.9 5.8 21.9 7.4 15 2.2 9.2 9.1 8.4 12 2z"/></svg>'
+      : '<svg viewBox="0 0 24 24" class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.9 6.4 6.9.6-5.2 4.5 1.6 6.8L12 16.9 5.8 21.9 7.4 15 2.2 9.2 9.1 8.4 12 2z"/></svg>';
+
+    function byFilters(list){
+      let out = list.filter(p => state.cat==='Tất cả' || p.category===state.cat);
+      out = out.filter(p => p.price <= state.priceMax);
+      if(state.search.trim()){
+        const q = state.search.toLowerCase();
+        out = out.filter(p => p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q));
+      }
+      if(state.sort==='price-asc') out.sort((a,b)=>a.price-b.price);
+      if(state.sort==='price-desc') out.sort((a,b)=>b.price-a.price);
+      if(state.sort==='popular') out.sort((a,b)=>b.reviews-a.reviews);
+      return out;
+    }
+
+    // ---------- Renderers ----------
+    function renderCats(){
+      const wrap = document.getElementById('cats');
+      wrap.innerHTML = '';
+      CATEGORIES.forEach(c=>{
+        const btn = document.createElement('button');
+        btn.className = 'rounded-xl border px-3 py-1 '+(state.cat===c? 'bg-rose-600 text-white border-rose-600':'bg-white');
+        btn.textContent = c;
+        btn.onclick = ()=>{ state.cat=c; renderAll(); };
+        wrap.appendChild(btn);
+      });
+      // footer list
+      document.getElementById('footerCats').innerHTML = CATEGORIES.filter(x=>x!=='Tất cả').map(x=>`<li>${x}</li>`).join('');
+    }
+
+    function renderGrid(){
+      const list = byFilters(PRODUCTS);
+      const root = document.getElementById('grid');
+      root.innerHTML = list.map(p=>{
+        const colors = p.colors.map(c=>`<div class="h-5 w-5 rounded-full border" style="background:${c}"></div>`).join('');
+        const rating = Array.from({length:5}).map((_,i)=> i < Math.floor(p.rating) ? starSvg(true) : starSvg(false)).join('');
+        return `
+          <div class="group rounded-3xl overflow-hidden border bg-white/70 backdrop-blur">
+            <div class="relative">
+              <div class="relative w-full aspect-[4/5] overflow-hidden bg-gray-100">
+                <img src="${p.img}" alt="${p.name}" class="h-full w-full object-cover">
+              </div>
+              <span class="absolute left-3 top-3 bg-black text-white text-xs px-2 py-1 rounded-full">${p.category}</span>
+              <button data-fav="${p.id}" class="absolute right-3 top-3 rounded-full bg-white/90 px-2 py-1">♡</button>
+            </div>
+            <div class="p-4">
+              <div class="font-semibold line-clamp-1">${p.name}</div>
+              <div class="flex items-center justify-between mt-1">
+                <div class="text-sm font-bold">${money(p.price)}đ</div>
+                <div class="flex items-center gap-1">${rating}<span class="text-xs text-gray-500 ml-1">${p.rating.toFixed(1)}</span></div>
+              </div>
+              <div class="flex items-center gap-1 mt-2">${colors}</div>
+              <div class="mt-3 flex gap-2">
+                <button data-detail="${p.id}" class="rounded-xl flex-1 bg-rose-600 text-white px-3 py-2">Chọn size</button>
+                <button data-buy="${p.id}" class="rounded-xl border px-3 py-2">Mua</button>
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+
+      // bind events
+      root.querySelectorAll('[data-detail]').forEach(btn=>{
+        btn.addEventListener('click', e=>{
+          const id = e.currentTarget.getAttribute('data-detail');
+          openDetail(PRODUCTS.find(p=>p.id===id));
+        })
+      });
+      root.querySelectorAll('[data-buy]').forEach(btn=>{
+        btn.addEventListener('click', e=>{
+          const id = e.currentTarget.getAttribute('data-buy');
+          addToCart(PRODUCTS.find(p=>p.id===id));
+        })
+      });
+    }
+
+    function renderHeader(){
+      document.getElementById('cartCount').textContent = String(state.cart.reduce((s,i)=>s+i.qty,0));
+      document.getElementById('year').textContent = String(new Date().getFullYear());
+      // moons
+      const holder = document.querySelector('#moonTpl').parentElement;
+      holder.innerHTML = Array.from({length:12}).map(()=>`<svg width="26" height="26" viewBox="0 0 28 28" class="opacity-80"><circle cx="14" cy="14" r="12" fill="#fef3c7"/><circle cx="14" cy="14" r="12" fill="none" stroke="#7f1d1d" stroke-width="1"/></svg>`).join('');
+    }
+
+    function openDetail(p){
+      state.detail = p; state.pick = { size: p.sizes?.[0]||null, color: p.colors?.[0]||null }; state.activeImg = p.img;
+      document.getElementById('detailTitle').textContent = p.name;
+      document.getElementById('detailPrice').textContent = money(p.price)+"đ";
+      document.getElementById('detailReviews').textContent = p.reviews;
+      document.getElementById('detailRating').textContent = p.rating.toFixed(1);
+      document.getElementById('detailImg').src = state.activeImg;
+      // thumbs
+      const thumbs = document.getElementById('thumbs');
+      thumbs.innerHTML = (p.imgs||[]).map((u,i)=>`<button data-thumb="${i}" class="aspect-square rounded-xl overflow-hidden border"><img src="${u}" class="h-full w-full object-cover"/></button>`).join('');
+      thumbs.querySelectorAll('[data-thumb]').forEach(b=> b.addEventListener('click', e=>{ const idx = +e.currentTarget.getAttribute('data-thumb'); state.activeImg = p.imgs[idx]; document.getElementById('detailImg').src = state.activeImg; }));
+      // colors
+      const colors = document.getElementById('detailColors');
+      colors.innerHTML = p.colors.map(c=>`<button data-color="${c}" class="h-6 w-6 rounded-full border" style="background:${c}"></button>`).join('');
+      colors.querySelectorAll('[data-color]').forEach(b=> b.addEventListener('click', e=>{ state.pick.color = e.currentTarget.getAttribute('data-color'); highlightPick(); }));
+      // sizes
+      const sizes = document.getElementById('detailSizes');
+      sizes.innerHTML = p.sizes.map(s=>`<button data-size="${s}" class="px-3 py-1 rounded-xl border text-sm">${s}</button>`).join('');
+      sizes.querySelectorAll('[data-size]').forEach(b=> b.addEventListener('click', e=>{ state.pick.size = e.currentTarget.getAttribute('data-size'); highlightPick(); }));
+      highlightPick();
+      document.getElementById('detailModal').classList.remove('hidden');
+    }
+
+    function highlightPick(){
+      // color ring
+      document.querySelectorAll('#detailColors [data-color]').forEach(el=>{
+        const c = el.getAttribute('data-color');
+        el.classList.toggle('ring-2');
+        el.classList.toggle('ring-gray-900', c===state.pick.color);
+      });
+      // size active
+      document.querySelectorAll('#detailSizes [data-size]').forEach(el=>{
+        const s = el.getAttribute('data-size');
+        el.classList.toggle('bg-gray-900', s===state.pick.size);
+        el.classList.toggle('text-white', s===state.pick.size);
+      });
+    }
+
+    function addToCart(p){
+      const size = state.pick.size || p.sizes?.[0] || null;
+      const color = state.pick.color || p.colors?.[0] || null;
+      const i = state.cart.findIndex(it=> it.id===p.id && it.size===size && it.color===color);
+      if(i>=0) state.cart[i].qty += 1; else state.cart.push({id:p.id, name:p.name, price:p.price, qty:1, size, color});
+      renderCart();
+      document.getElementById('cartSheet').classList.remove('hidden');
+    }
+
+    function renderCart(){
+      document.getElementById('cartCount').textContent = String(state.cart.reduce((s,i)=>s+i.qty,0));
+      const list = document.getElementById('cartList');
+      if(state.cart.length===0){ list.innerHTML = '<div class="text-sm text-gray-500">Chưa có sản phẩm nào.</div>'; return; }
+      list.innerHTML = state.cart.map(it=>`<div class="rounded-xl border p-4 flex items-center gap-3">
+        <div class="h-16 w-16 rounded-lg bg-gray-100 grid place-items-center">👕</div>
+        <div class="flex-1 min-w-0">
+          <div class="font-medium truncate">${it.name}</div>
+          <div class="text-xs text-gray-500">${it.size?('Size '+it.size):''} ${it.color?('• Màu '+it.color):''}</div>
+          <div class="text-sm font-semibold mt-1">${money(it.price)}đ</div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button data-dec="${it.id}|${it.size}|${it.color}" class="rounded-lg border px-2">−</button>
+          <div class="w-8 text-center">${it.qty}</div>
+          <button data-inc="${it.id}|${it.size}|${it.color}" class="rounded-lg border px-2">＋</button>
+        </div>
+        <button data-del="${it.id}|${it.size}|${it.color}" class="rounded-lg px-2">✖</button>
+      </div>`).join('');
+      list.querySelectorAll('[data-inc]').forEach(b=> b.addEventListener('click', e=>{ const [id,s,c] = e.currentTarget.getAttribute('data-inc').split('|'); const it = state.cart.find(x=>x.id===id && x.size===s && x.color===c); it.qty++; renderCart(); }));
+      list.querySelectorAll('[data-dec]').forEach(b=> b.addEventListener('click', e=>{ const [id,s,c] = e.currentTarget.getAttribute('data-dec').split('|'); const it = state.cart.find(x=>x.id===id && x.size===s && x.color===c); it.qty = Math.max(1, it.qty-1); renderCart(); }));
+      list.querySelectorAll('[data-del]').forEach(b=> b.addEventListener('click', e=>{ const [id,s,c] = e.currentTarget.getAttribute('data-del').split('|'); state.cart = state.cart.filter(x=>!(x.id===id && x.size===s && x.color===c)); renderCart(); }));
+      const subtotal = state.cart.reduce((s,i)=> s + i.price*i.qty, 0);
+      document.getElementById('subtotal').textContent = money(subtotal)+"đ";
+    }
+
+    // ---------- Events ----------
+    document.getElementById('search').addEventListener('input', e=>{ state.search = e.target.value; renderGrid(); });
+    document.getElementById('priceRange').addEventListener('input', e=>{ const v = +e.target.value; state.priceMax = v*1000; document.getElementById('priceMax').textContent = v; renderGrid(); });
+    document.getElementById('sort').addEventListener('change', e=>{ state.sort = e.target.value; renderGrid(); });
+    document.getElementById('openCart').addEventListener('click', ()=>{ renderCart(); document.getElementById('cartSheet').classList.remove('hidden'); });
+    document.querySelectorAll('[data-close="cart"]').forEach(el=> el.addEventListener('click', ()=> document.getElementById('cartSheet').classList.add('hidden')));
+    document.querySelectorAll('[data-close="modal"]').forEach(el=> el.addEventListener('click', ()=> document.getElementById('detailModal').classList.add('hidden')));
+    document.getElementById('btnAddCart').addEventListener('click', ()=>{ if(state.detail) addToCart(state.detail); });
+    document.getElementById('btnBuyNow').addEventListener('click', ()=>{ if(state.detail){ addToCart(state.detail); document.getElementById('detailModal').classList.add('hidden'); } });
+
+    // ---------- Dev sanity tests (console) ----------
+    try{
+      console.assert(money(129000) === 129000..toLocaleString('vi-VN'), 'money() formats vi-VN');
+      console.assert(PRODUCTS.length >= 8, '>= 8 products');
+      const asc=[...PRODUCTS].sort((a,b)=>a.price-b.price).map(p=>p.price); const desc=[...PRODUCTS].sort((a,b)=>b.price-a.price).map(p=>p.price);
+      console.assert(asc[0] <= asc.at(-1), 'price asc ok');
+      console.assert(desc[0] >= desc.at(-1), 'price desc ok');
+      const filteredNames = PRODUCTS.filter(p=>p.name.toLowerCase().includes('áo')).map(p=>p.name);
+      console.assert(filteredNames.length>=1, 'text filter finds items');
+      console.assert(CATEGORIES.includes('T-Shirt') && CATEGORIES.includes('Hoodie'), 'categories include types');
+      console.log('✔️ Dev tests passed: 5TP FASHION static HTML ready');
+    }catch(e){ console.warn('Dev tests failed:', e); }
+
+    // ---------- Initial render ----------
+    function renderAll(){ renderCats(); renderGrid(); renderHeader(); }
+    renderAll();
+  </script>
+</body>
+</html>
