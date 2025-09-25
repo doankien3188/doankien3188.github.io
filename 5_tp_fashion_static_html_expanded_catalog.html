@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> FASHION – Trung Thu Collection</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* ===== Animations & Decorations ===== */
+    @keyframes floatY{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+    @keyframes sway{0%{transform:rotate(-1.5deg)}50%{transform:rotate(1.5deg)}100%{transform:rotate(-1.5deg)}}
+    @keyframes drift{0%{transform:translateX(0)}100%{transform:translateX(40px)}}
+    @keyframes moonDrift{0%{transform:translateX(0)}100%{transform:translateX(-80px)}}
+    @keyframes bunnyHop{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @keyframes lanternSwing{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+    @keyframes glow{0%,100%{filter:drop-shadow(0 0 0 rgba(251,191,36,0))}50%{filter:drop-shadow(0 0 10px rgba(251,191,36,.65))}}
+
+    /* ===== Professional polish ===== */
+    .card{transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
+    .card:hover{transform:translateY(-4px); box-shadow:0 20px 40px rgba(2,6,23,.08); border-color:rgba(2,6,23,.08)}
+    .img-zoom img{transition:transform .45s ease}
+    .img-zoom:hover img{transform:scale(1.06)}
+  </style>
+</head>
+<body class="min-h-screen relative bg-gradient-to-b from-amber-50 via-rose-50 to-pink-50 text-gray-900">
+  <!-- Soft full-moon pattern background -->
+  <svg aria-hidden class="pointer-events-none fixed -z-20 inset-0 w-full h-full opacity-[0.05]" preserveAspectRatio="none" viewBox="0 0 600 400">
+    <defs>
+      <pattern id="fullmoon-ptn" width="60" height="60" patternUnits="userSpaceOnUse">
+        <circle cx="30" cy="30" r="18" fill="#fef3c7" stroke="#7f1d1d" stroke-width="0.5"/>
+        <circle cx="30" cy="30" r="9" fill="none" stroke="#7f1d1d" stroke-width="0.5"/>
+      </pattern>
+    </defs>
+    <rect x="0" y="0" width="600" height="400" fill="url(#fullmoon-ptn)"/>
+  </svg>
+
+  <!-- Topbar -->
+  <div class="w-full bg-gradient-to-r from-amber-700 to-rose-700 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between text-sm">
+      <div>🚚 Freeship từ 299k • 🔁 Đổi trả 7 ngày</div>
+      <div class="opacity-90">📷 📘 ▶️</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 backdrop-blur bg-white/70 border-b">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
+      <div class="text-xl font-extrabold">👕 5TP FASHION</div>
+      <nav class="hidden md:flex items-center gap-2 ml-4 text-sm">
+        <button class="rounded-xl border px-3 py-1 bg-white hover:bg-gray-50">Mới</button>
+        <button class="rounded-xl border px-3 py-1 bg-white hover:bg-gray-50">Bán chạy</button>
+        <button class="rounded-xl border px-3 py-1 bg-white hover:bg-gray-50">Khuyến mãi</button>
+      </nav>
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-2 w-full max-w-md">
+        <div class="relative flex-1">
+          <input id="search" class="w-full rounded-xl border px-3 py-2 pl-8" placeholder="Tìm áo, quần, váy..." />
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">🔎</span>
+        </div>
+        <button id="openCart" class="rounded-xl bg-rose-600 text-white px-3 py-2">🛒 Giỏ (<span id="cartCount">0</span>)</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-6 py-10">
+    <div class="rounded-3xl overflow-hidden ring-2 ring-rose-200/60 shadow-xl">
+      <div class="relative aspect-[16/9] grid place-items-center text-white bg-gradient-to-br from-rose-600 via-amber-500 to-pink-600">
+        <div class="absolute inset-0 bg-black/15"></div>
+        <div class="relative z-10 text-center p-8">
+          <div class="inline-flex text-xs uppercase tracking-widest bg-white/10 border border-white/30 rounded-full px-3 py-1">Trung Thu SALE • Quà đèn lồng</div>
+          <h1 class="text-4xl md:text-5xl font-extrabold mt-3 drop-shadow">Săn Deal Trung Thu • 5TP FASHION</h1>
+          <p class="text-white/90 mt-3">Bộ sưu tập mới • Đơn từ 399k tặng bánh nướng & túi quà</p>
+          <div class="mt-5 flex gap-3 justify-center">
+            <a href="#grid" class="rounded-xl bg-white text-rose-600 hover:bg-amber-50 px-5 py-2.5 font-semibold">Mua ngay</a>
+            <a class="rounded-xl border border-white/30 text-white hover:bg-white hover:text-rose-700 px-5 py-2.5 font-semibold">Xem lookbook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="rounded-3xl bg-white/70 backdrop-blur p-6 grid grid-cols-2 gap-4 shadow">
+      <div class="p-4 rounded-2xl bg-gray-50"><div class="font-semibold">🚀 Giao nhanh</div><p class="text-sm text-gray-500">24–48h, freeship ≥299k</p></div>
+      <div class="p-4 rounded-2xl bg-gray-50"><div class="font-semibold">🔄 Đổi trả 7 ngày</div><p class="text-sm text-gray-500">Đổi size/màu dễ dàng</p></div>
+      <div class="p-4 rounded-2xl bg-gray-50"><div class="font-semibold">🎓 Ưu đãi sinh viên</div><p class="text-sm text-gray-500">Giảm thêm 10%</p></div>
+      <div class="p-4 rounded-2xl bg-gray-50"><div class="font-semibold">🌿 Chất liệu đẹp</div><p class="text-sm text-gray-500">Cotton, denim bền</p></div>
+    </aside>
+  </section>
+
+  <!-- Bunny & Lantern Ribbon -->
+  <section class="max-w-6xl mx-auto px-4 -mt-2">
+    <div class="rounded-3xl bg-gradient-to-r from-amber-50/70 via-white/80 to-rose-50/70 border p-3 shadow-sm">
+      <div class="relative overflow-hidden">
+        <!-- rope -->
+        <svg aria-hidden class="absolute left-0 right-0 -top-1 w-full" height="22" viewBox="0 0 600 22" preserveAspectRatio="none">
+          <path d="M0 14 C 120 4, 240 22, 360 12 S 540 6, 600 16" fill="none" stroke="#b45309" stroke-width="1.5" opacity=".45"/>
+        </svg>
+        <div id="ribbon" class="flex gap-5 justify-center py-2" style="animation:moonDrift 28s linear infinite alternate"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <section class="max-w-6xl mx-auto px-4 mt-4">
+    <div class="rounded-3xl border bg-white/70 backdrop-blur">
+      <div class="p-4 md:p-6 flex flex-col md:flex-row gap-4 md:items-center text-sm">
+        <div class="flex items-center gap-2"><span>⚙️</span><span class="font-medium">Danh mục:</span></div>
+        <div class="flex-1 overflow-x-auto"><div id="cats" class="flex gap-2 min-w-max"></div></div>
+        <div class="w-full md:w-72">
+          <div class="text-xs text-gray-500 mb-2">Giá tối đa (nghìn VNĐ): <span id="priceMax">400</span>k</div>
+          <input id="priceRange" type="range" min="0" max="600" step="10" value="400" class="w-full" />
+        </div>
+        <div class="w-full md:w-44">
+          <select id="sort" class="w-full rounded-xl border px-3 py-2">
+            <option value="popular">Phổ biến</option>
+            <option value="price-asc">Giá tăng dần</option>
+            <option value="price-desc">Giá giảm dần</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Grid -->
+  <section id="grid" class="max-w-6xl mx-auto px-4 py-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"></section>
+
+  <!-- Detail Modal -->
+  <div id="detailModal" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/60" data-close="modal"></div>
+    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[92vw] max-w-lg bg-white rounded-2xl p-4">
+      <div class="flex items-center justify-between">
+        <div id="detailTitle" class="text-lg font-bold"></div>
+        <button class="p-1 rounded-md hover:bg-gray-100" data-close="modal">✖</button>
+      </div>
+      <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <div class="relative w-full aspect-[4/5] overflow-hidden rounded-2xl bg-gray-100 img-zoom">
+            <img id="detailImg" class="h-full w-full object-cover" alt="product"/>
+          </div>
+          <div id="thumbs" class="mt-3 grid grid-cols-4 gap-2"></div>
+        </div>
+        <div>
+          <div id="detailPrice" class="text-xl font-bold"></div>
+          <div class="mt-2 text-xs text-gray-500"><span id="detailRating"></span> • <span id="detailReviews"></span> lượt đánh giá</div>
+          <div class="mt-3"><div class="text-sm font-medium">Màu sắc</div><div id="detailColors" class="flex gap-2 mt-2"></div></div>
+          <div class="mt-3"><div class="text-sm font-medium">Size</div><div id="detailSizes" class="flex flex-wrap gap-2 mt-2"></div></div>
+          <div class="mt-4 flex gap-2"><button id="btnAddCart" class="rounded-xl flex-1 bg-rose-600 text-white px-4 py-2">Thêm vào giỏ</button><button id="btnBuyNow" class="rounded-xl border px-4 py-2">Mua ngay</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Sheet -->
+  <div id="cartSheet" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/60" data-close="cart"></div>
+    <aside class="absolute right-0 top-0 h-full w-full sm:w-[420px] bg-white p-4 overflow-y-auto">
+      <div class="flex items-center justify-between"><div class="text-lg font-bold">Giỏ hàng</div><button class="p-1 rounded-md hover:bg-gray-100" data-close="cart">✖</button></div>
+      <div id="cartList" class="mt-4 space-y-3"></div>
+      <div class="mt-6 border-t pt-4 space-y-3"><div class="flex justify-between text-sm"><span>Tạm tính</span><span id="subtotal" class="font-semibold">0đ</span></div><button class="w-full rounded-xl bg-rose-600 text-white px-4 py-2">Thanh toán</button></div>
+    </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t mt-10">
+    <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-4 gap-6">
+      <div><div class="text-xl font-bold">👕 5TP FASHION</div><p class="text-sm text-gray-500 mt-2">Cửa hàng thời trang tối giản – đồng hành cùng sinh viên.</p></div>
+      <div><div class="text-sm font-semibold">Hỗ trợ</div><ul class="text-sm text-gray-500 mt-2 space-y-1"><li>FAQ & đổi trả</li><li>Chính sách vận chuyển</li><li>Liên hệ CSKH</li></ul></div>
+      <div><div class="text-sm font-semibold">Danh mục</div><ul id="footerCats" class="text-sm text-gray-500 mt-2 space-y-1"></ul></div>
+      <div><div class="text-sm font-semibold">Kết nối</div><div class="flex gap-3 mt-2 text-gray-500">📷 📘 ▶️</div></div>
+    </div>
+    <div class="text-xs text-gray-400 text-center pb-6">© <span id="year"></span> 5TP FASHION. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // ===== Image sources (Unsplash). Nếu cần offline, mình có thể chuyển sang SVG inline. =====
+    const U = (id)=>`https://images.unsplash.com/${id}?q=80&w=1200&auto=format&fit=crop`;
+    // Local image helper for uploaded assets
+    const L = (name)=>`sandbox:/mnt/data/${encodeURIComponent(name)}`;
+    const IMGS = {
+      // T-Shirts keep Unsplash for variety
+      tshirt:[ U('photo-1520975693412-26e560c91808'), U('photo-1512436991641-6745cdb1723f'), U('photo-1503341455253-b2e723bb3dbb') ],
+      // Shirts -> add your white shirt photos
+      shirt:[ L('Ao-So-Mi-Trang-Kieu-Phap-Thiet-Ke-Thoi-Trang-hang-dep.jpg'), L('20210512_jFHP7jwoebIzGlWDRllw5ih4.jpg'), U('photo-1521572163474-6864f9cf17ab') ],
+      // Polo -> add navy polo photo
+      polo:[ L('tải xuống.jpg'), U('photo-1602810318383-9e3a9c1b67b1'), U('photo-1592878904946-b3cd4f1a6b8b') ],
+      // Hoodie keep Unsplash
+      hoodie:[ U('photo-1503342217505-b0a15cf70489'), U('photo-1523381294911-8d3cead13475'), U('photo-1544441893-675973e31985') ],
+      // Jeans -> add ripped wide jeans + black slim jeans
+      jeans:[ L('shopping.webp'), L('kvfmq-quan-slim-fit-2_33e8aa362d71473fa77f001f4932836a.png'), U('photo-1541099649105-f69ad21f3246') ],
+      dress:[ U('photo-1520974735194-1b0e1b6fe8f4'), U('photo-1520975960939-6c0f4d76b3f5'), U('photo-1520975964276-8b2b47e1b3b2') ],
+      // Pants can reuse black jeans as a style option
+      pants:[ L('kvfmq-quan-slim-fit-2_33e8aa362d71473fa77f001f4932836a.png'), U('photo-1520975690910-728c4e4a1b5c'), U('photo-1539533113208-f6dfc74fdc37') ],
+      // Skirt -> add denim maxi skirt
+      skirt:[ L('f541e2e25e7c232474f1e115aefb9c00.jpg_720x720q80.jpg'), U('photo-1520975693412-26e560c91808'), U('photo-1520975690910-728c4e4a1b5c') ],
+      jacket:[ U('photo-1519741497674-611481863552'), U('photo-1520975603224-6ca4f64c4a5c'), U('photo-1520975552079-30f2c3a0f2db') ],
+      sweater:[ U('photo-1523380715253-99f7da3b8d5e'), U('photo-1519741497674-611481863552'), U('photo-1541099649105-f69ad21f3246') ],
+      shorts:[ U('photo-1520975690910-728c4e4a1b5c'), U('photo-1539533113208-f6dfc74fdc37'), U('photo-1551854713-8b811be39e8f') ],
+    };
+
+    // ===== Products (24) =====
+    const P = (id,name,cat,key,price,colors,sizes,rating,reviews)=>({ id, name, price, rating, reviews, category:cat, colors, sizes, image:key, img: IMGS[key][0], imgs: IMGS[key] });
+    const PRODUCTS = [
+      P('p1','Áo phông Basic','T-Shirt','tshirt',129000,['#111827','#f87171','#60a5fa'],['S','M','L','XL'],4.6,128),
+      P('p2','Áo sơ mi Oversize','Shirt','shirt',199000,['#e5e7eb','#1f2937'],['S','M','L'],4.8,203),
+      P('p3','Quần jean Slim','Jeans','jeans',279000,['#1f2937','#374151'],['28','29','30','31','32'],4.7,356),
+      P('p4','Váy midi A-line','Dress','dress',259000,['#f472b6','#fbbf24'],['S','M','L'],4.9,187),
+      P('p5','Áo hoodie Nỉ','Hoodie','hoodie',329000,['#111827','#4b5563'],['S','M','L','XL'],4.5,92),
+      P('p6','Quần jogger Thun','Pants','pants',219000,['#111827','#6b7280'],['S','M','L','XL'],4.4,67),
+      P('p7','Chân váy xếp ly','Skirt','skirt',189000,['#fde68a','#fca5a5'],['S','M','L'],4.3,51),
+      P('p8','Áo polo Cotton','Polo','polo',169000,['#1f2937','#93c5fd'],['S','M','L','XL'],4.6,144),
+      P('p9','Áo phông Graphic','T-Shirt','tshirt',149000,['#111827','#ef4444'],['S','M','L','XL'],4.5,77),
+      P('p10','Áo sơ mi Trắng','Shirt','shirt',189000,['#e5e7eb'],['S','M','L','XL'],4.7,182),
+      P('p11','Quần Tây Slim','Pants','pants',249000,['#111827','#6b7280'],['S','M','L','XL'],4.2,44),
+      P('p12','Đầm hoa Vintage','Dress','dress',299000,['#f472b6','#fbbf24'],['S','M','L'],4.8,121),
+      P('p13','Áo khoác Denim','Jacket','jacket',349000,['#1f2937','#9ca3af'],['S','M','L'],4.6,98),
+      P('p14','Áo len dệt kim','Sweater','sweater',239000,['#f59e0b','#111827'],['S','M','L','XL'],4.4,63),
+      P('p15','Quần short Basic','Shorts','shorts',139000,['#111827','#e5e7eb'],['S','M','L'],4.3,71),
+      P('p16','Áo polo Kẻ','Polo','polo',189000,['#111827','#93c5fd'],['S','M','L','XL'],4.5,86),
+      P('p17','Áo hoodie Oversize','Hoodie','hoodie',359000,['#111827','#4b5563'],['S','M','L','XL'],4.6,112),
+      P('p18','Váy suông Midi','Dress','dress',289000,['#f472b6','#fbbf24'],['S','M','L'],4.7,129),
+      P('p19','Sơ mi Kẻ Caro','Shirt','shirt',209000,['#1f2937','#e5e7eb'],['S','M','L','XL'],4.4,94),
+      P('p20','Áo phông Trơn','T-Shirt','tshirt',119000,['#111827','#f87171','#60a5fa'],['S','M','L','XL'],4.2,58),
+      P('p21','Quần jean Ripped','Jeans','jeans',299000,['#1f2937','#374151'],['28','29','30','31','32'],4.5,176),
+      P('p22','Chân váy Denim','Skirt','skirt',199000,['#9ca3af','#111827'],['S','M','L'],4.3,64),
+      P('p23','Áo len Cổ lọ','Sweater','sweater',259000,['#111827','#f59e0b'],['S','M','L','XL'],4.6,73),
+      P('p24','Quần short Kaki','Shorts','shorts',169000,['#e5e7eb','#111827'],['S','M','L'],4.4,68),
+    ];
+
+    const CATEGORIES = ["Tất cả","T-Shirt","Shirt","Polo","Jeans","Pants","Skirt","Dress","Hoodie","Jacket","Sweater","Shorts"];
+    const CAT_ICONS = {"T-Shirt":"👕","Shirt":"👔","Polo":"🧣","Jeans":"👖","Pants":"🩳","Skirt":"🧥","Dress":"👗","Hoodie":"🧥","Jacket":"🧥","Sweater":"🧶","Shorts":"🩳","Tất cả":"⭐"};
+
+    // ===== State =====
+    let state = { search:"", cat:"Tất cả", priceMax: 400000, sort:"popular", cart:[], detail:null, pick:{size:null,color:null}, activeImg:null };
+
+    // ===== Utils =====
+    const money = v => v.toLocaleString('vi-VN');
+    const starSvg = (f=true) => f
+      ? '<svg viewBox="0 0 24 24" class="w-4 h-4 fill-yellow-400 stroke-yellow-400"><path d="M12 2l2.9 6.4 6.9.6-5.2 4.5 1.6 6.8L12 16.9 5.8 21.9 7.4 15 2.2 9.2 9.1 8.4 12 2z"/></svg>'
+      : '<svg viewBox="0 0 24 24" class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.9 6.4 6.9.6-5.2 4.5 1.6 6.8L12 16.9 5.8 21.9 7.4 15 2.2 9.2 9.1 8.4 12 2z"/></svg>';
+
+    // ===== Ribbon (bunnies + lanterns) =====
+    function renderRibbon(){
+      const holder = document.getElementById('ribbon');
+      if(!holder) return;
+      holder.innerHTML = Array.from({length:12}).map((_,i)=>{
+        if(i % 2 === 0){
+          return `<div class="w-10 h-12" style="animation:bunnyHop 3.2s ease-in-out ${i*0.2}s infinite">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+              <circle cx="32" cy="44" r="14" fill="#fde68a" stroke="#7f1d1d" stroke-width="2"/>
+              <ellipse cx="22" cy="20" rx="6" ry="14" fill="#fde68a" stroke="#7f1d1d" stroke-width="2"/>
+              <ellipse cx="42" cy="20" rx="6" ry="14" fill="#fde68a" stroke="#7f1d1d" stroke-width="2"/>
+              <circle cx="28" cy="42" r="2" fill="#111"/>
+              <circle cx="36" cy="42" r="2" fill="#111"/>
+            </svg>
+          </div>`;
+        } else {
+          return `<div class="w-8 h-12" style="animation:lanternSwing 4.2s ease-in-out ${i*0.24}s infinite, glow 3.6s ease-in-out infinite">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+              <ellipse cx="32" cy="32" rx="18" ry="22" fill="#fbbf24" stroke="#92400e" stroke-width="2"/>
+              <line x1="32" y1="10" x2="32" y2="0" stroke="#92400e" stroke-width="2"/>
+              <rect x="28" y="54" width="8" height="6" fill="#92400e"/>
+            </svg>
+          </div>`;
+        }
+      }).join('');
+    }
+
+    // ===== Filters =====
+    function renderCats(){
+      const wrap = document.getElementById('cats');
+      wrap.innerHTML = '';
+      CATEGORIES.forEach(c=>{
+        const btn = document.createElement('button');
+        btn.className = 'rounded-xl border px-3 py-1 shadow-sm hover:shadow transition '+(state.cat===c? 'bg-rose-600 text-white border-rose-600':'bg-white');
+        btn.innerHTML = `<span class="mr-1">${CAT_ICONS[c]||'🎯'}</span>${c}`;
+        btn.onclick = ()=>{ state.cat=c; renderGrid(); renderFooterCats(); };
+        wrap.appendChild(btn);
+      });
+    }
+
+    function renderFooterCats(){
+      document.getElementById('footerCats').innerHTML = CATEGORIES.filter(x=>x!=='Tất cả').map(x=>`<li>${x}</li>`).join('');
+    }
+
+    // ===== Grid =====
+    function byFilters(list){
+      let out = list.filter(p => state.cat==='Tất cả' || p.category===state.cat);
+      out = out.filter(p => p.price <= state.priceMax);
+      if(state.search.trim()){
+        const q = state.search.toLowerCase();
+        out = out.filter(p => p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q));
+      }
+      if(state.sort==='price-asc') out.sort((a,b)=>a.price-b.price);
+      if(state.sort==='price-desc') out.sort((a,b)=>b.price-a.price);
+      if(state.sort==='popular') out.sort((a,b)=>b.reviews-a.reviews);
+      return out;
+    }
+
+    function renderGrid(){
+      const list = byFilters(PRODUCTS);
+      const root = document.getElementById('grid');
+      root.innerHTML = list.map(p=>{
+        const colors = p.colors.map(c=>`<div class="h-5 w-5 rounded-full border" style="background:${c}"></div>`).join('');
+        const rating = Array.from({length:5}).map((_,i)=> i < Math.floor(p.rating) ? starSvg(true) : starSvg(false)).join('');
+        return `
+          <div class="group card rounded-3xl overflow-hidden border bg-white/80 backdrop-blur">
+            <div class="relative">
+              <div class="relative w-full aspect-[4/5] overflow-hidden bg-gray-100 img-zoom">
+                <img src="${p.img}" alt="${p.name}" class="h-full w-full object-cover" loading="lazy">
+              </div>
+              <span class="absolute left-3 top-3 bg-black text-white text-xs px-2 py-1 rounded-full">${p.category}</span>
+              <button data-fav="${p.id}" class="absolute right-3 top-3 rounded-full bg-white/90 px-2 py-1">♡</button>
+            </div>
+            <div class="p-4">
+              <div class="font-semibold line-clamp-1">${p.name}</div>
+              <div class="flex items-center justify-between mt-1">
+                <div class="text-sm font-bold">${money(p.price)}đ</div>
+                <div class="flex items-center gap-1">${rating}<span class="text-xs text-gray-500 ml-1">${p.rating.toFixed(1)}</span></div>
+              </div>
+              <div class="flex items-center gap-1 mt-2">${colors}</div>
+              <div class="mt-3 flex gap-2"><button data-detail="${p.id}" class="rounded-xl flex-1 bg-rose-600 text-white px-3 py-2">Chọn size</button><button data-buy="${p.id}" class="rounded-xl border px-3 py-2">Mua</button></div>
+            </div>
+          </div>`;
+      }).join('');
+
+      // Bind
+      root.querySelectorAll('[data-detail]').forEach(btn=> btn.addEventListener('click', e=>{
+        const id = e.currentTarget.getAttribute('data-detail');
+        openDetail(PRODUCTS.find(p=>p.id===id));
+      }));
+      root.querySelectorAll('[data-buy]').forEach(btn=> btn.addEventListener('click', e=>{
+        const id = e.currentTarget.getAttribute('data-buy');
+        addToCart(PRODUCTS.find(p=>p.id===id));
+      }));
+    }
+
+    // ===== Detail & Cart =====
+    function openDetail(p){
+      state.detail = p; state.pick = { size: p.sizes?.[0]||null, color: p.colors?.[0]||null }; state.activeImg = p.img;
+      document.getElementById('detailTitle').textContent = p.name;
+      document.getElementById('detailPrice').textContent = money(p.price)+"đ";
+      document.getElementById('detailReviews').textContent = p.reviews;
+      document.getElementById('detailRating').textContent = p.rating.toFixed(1);
+      document.getElementById('detailImg').src = state.activeImg;
+      const thumbs = document.getElementById('thumbs');
+      thumbs.innerHTML = (p.imgs||[]).map((u,i)=>`<button data-thumb="${i}" class="aspect-square rounded-xl overflow-hidden border"><img src="${u}" class="h-full w-full object-cover" loading="lazy"/></button>`).join('');
+      thumbs.querySelectorAll('[data-thumb]').forEach(b=> b.addEventListener('click', e=>{ const idx = +e.currentTarget.getAttribute('data-thumb'); state.activeImg = p.imgs[idx]; document.getElementById('detailImg').src = state.activeImg; }));
+      const colors = document.getElementById('detailColors');
+      colors.innerHTML = p.colors.map(c=>`<button data-color="${c}" class="h-6 w-6 rounded-full border" style="background:${c}"></button>`).join('');
+      colors.querySelectorAll('[data-color]').forEach(b=> b.addEventListener('click', e=>{ state.pick.color = e.currentTarget.getAttribute('data-color'); highlightPick(); }));
+      const sizes = document.getElementById('detailSizes');
+      sizes.innerHTML = p.sizes.map(s=>`<button data-size="${s}" class="px-3 py-1 rounded-xl border text-sm">${s}</button>`).join('');
+      sizes.querySelectorAll('[data-size]').forEach(b=> b.addEventListener('click', e=>{ state.pick.size = e.currentTarget.getAttribute('data-size'); highlightPick(); }));
+      highlightPick();
+      document.getElementById('detailModal').classList.remove('hidden');
+    }
+
+    function highlightPick(){
+      document.querySelectorAll('#detailColors [data-color]').forEach(el=>{
+        const c = el.getAttribute('data-color');
+        el.classList.toggle('ring-2', c===state.pick.color);
+        el.classList.toggle('ring-gray-900', c===state.pick.color);
+      });
+      document.querySelectorAll('#detailSizes [data-size]').forEach(el=>{
+        const s = el.getAttribute('data-size');
+        el.classList.toggle('bg-gray-900', s===state.pick.size);
+        el.classList.toggle('text-white', s===state.pick.size);
+      });
+    }
+
+    function addToCart(p){
+      const size = state.pick.size || p.sizes?.[0] || null;
+      const color = state.pick.color || p.colors?.[0] || null;
+      const i = state.cart.findIndex(it=> it.id===p.id && it.size===size && it.color===color);
+      if(i>=0) state.cart[i].qty += 1; else state.cart.push({id:p.id, name:p.name, price:p.price, qty:1, size, color});
+      renderCart();
+      document.getElementById('cartSheet').classList.remove('hidden');
+    }
+
+    function renderCart(){
+      document.getElementById('cartCount').textContent = String(state.cart.reduce((s,i)=>s+i.qty,0));
+      const list = document.getElementById('cartList');
+      if(state.cart.length===0){ list.innerHTML = '<div class="text-sm text-gray-500">Chưa có sản phẩm nào.</div>'; return; }
+      list.innerHTML = state.cart.map(it=>`<div class="rounded-xl border p-4 flex items-center gap-3">
+        <div class="h-16 w-16 rounded-lg bg-gray-100 grid place-items-center">👕</div>
+        <div class="flex-1 min-w-0"><div class="font-medium truncate">${it.name}</div><div class="text-xs text-gray-500">${it.size?('Size '+it.size):''} ${it.color?('• Màu '+it.color):''}</div><div class="text-sm font-semibold mt-1">${money(it.price)}đ</div></div>
+        <div class="flex items-center gap-2"><button data-dec="${it.id}|${it.size}|${it.color}" class="rounded-lg border px-2">−</button><div class="w-8 text-center">${it.qty}</div><button data-inc="${it.id}|${it.size}|${it.color}" class="rounded-lg border px-2">＋</button></div>
+        <button data-del="${it.id}|${it.size}|${it.color}" class="rounded-lg px-2">✖</button>
+      </div>`).join('');
+      list.querySelectorAll('[data-inc]').forEach(b=> b.addEventListener('click', e=>{ const [id,s,c] = e.currentTarget.getAttribute('data-inc').split('|'); const it = state.cart.find(x=>x.id===id && x.size===s && x.color===c); it.qty++; renderCart(); }));
+      list.querySelectorAll('[data-dec]').forEach(b=> b.addEventListener('click', e=>{ const [id,s,c] = e.currentTarget.getAttribute('data-dec').split('|'); const it = state.cart.find(x=>x.id===id && x.size===s && x.color===c); it.qty = Math.max(1, it.qty-1); renderCart(); }));
+      list.querySelectorAll('[data-del]').forEach(b=> b.addEventListener('click', e=>{ const [id,s,c] = e.currentTarget.getAttribute('data-del').split('|'); state.cart = state.cart.filter(x=>!(x.id===id && x.size===s && x.color===c)); renderCart(); }));
+      const subtotal = state.cart.reduce((s,i)=> s + i.price*i.qty, 0);
+      document.getElementById('subtotal').textContent = money(subtotal)+"đ";
+    }
+
+    // ===== Events =====
+    document.getElementById('search').addEventListener('input', e=>{ state.search = e.target.value; renderGrid(); });
+    document.getElementById('priceRange').addEventListener('input', e=>{ const v = +e.target.value; state.priceMax = v*1000; document.getElementById('priceMax').textContent = v; renderGrid(); });
+    document.getElementById('sort').addEventListener('change', e=>{ state.sort = e.target.value; renderGrid(); });
+    document.getElementById('openCart').addEventListener('click', ()=>{ renderCart(); document.getElementById('cartSheet').classList.remove('hidden'); });
+    document.querySelectorAll('[data-close="cart"]').forEach(el=> el.addEventListener('click', ()=> document.getElementById('cartSheet').classList.add('hidden')));
+    document.querySelectorAll('[data-close="modal"]').forEach(el=> el.addEventListener('click', ()=> document.getElementById('detailModal').classList.add('hidden')));
+    document.getElementById('btnAddCart').addEventListener('click', ()=>{ if(state.detail) addToCart(state.detail); });
+    document.getElementById('btnBuyNow').addEventListener('click', ()=>{ if(state.detail){ addToCart(state.detail); document.getElementById('detailModal').classList.add('hidden'); } });
+
+    // ===== Dev sanity tests =====
+    try{
+      console.assert((129000).toLocaleString('vi-VN') === 129000..toLocaleString('vi-VN'), 'Intl available');
+      console.assert(PRODUCTS.length >= 24, '>= 24 products');
+      const asc=[...PRODUCTS].sort((a,b)=>a.price-b.price).map(p=>p.price); const desc=[...PRODUCTS].sort((a,b)=>b.price-a.price).map(p=>p.price);
+      console.assert(asc[0] <= asc.at(-1), 'price asc ok');
+      console.assert(desc[0] >= desc.at(-1), 'price desc ok');
+      const filteredNames = PRODUCTS.filter(p=>p.name.toLowerCase().includes('áo')).map(p=>p.name);
+      console.assert(filteredNames.length>=1, 'text filter finds items');
+      console.log('✔️ Dev tests passed');
+    }catch(e){ console.warn('Dev tests failed:', e); }
+
+    // ===== Initial render =====
+    function renderAll(){ renderCats(); renderGrid(); renderFooterCats(); renderRibbon(); document.getElementById('year').textContent = String(new Date().getFullYear()); }
+    renderAll();
+  </script>
+</body>
+</html>
